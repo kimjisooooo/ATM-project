@@ -18,12 +18,25 @@ while True:
             print(f"입금하신 금액은 {deposit_amount}원 이고 현재 잔액은 {balance}원 입니다.")
         else:
             print("입금한 금액을 숫자 형태와 음수가 아닌 값을 입력해주세요.")
+
     if num == '2':
         withdraw_amonut = int(input("출금할 금액을 입력해주세요 : "))
         withdraw_amonut = min(balance, withdraw_amonut)
         balance -= withdraw_amonut 
         receipts.append(("출금", withdraw_amonut, balance))
         print(f"출금하신 금액은 {withdraw_amonut}원 이고 현재 잔액은 {balance}원 입니다.")
+
+    if num == '3':
+        if receipts:
+            print("\n=======영수증 목록=======")
+            # idx = 1
+            # for action, amount, current_balance in receipts:
+            #     print(f"{idx}. {action}: {amount}원\n   잔액: {current_balance}원\n")
+            #     idx += 1
+            for i in receipts:
+                print(f"{i[0]}: {i[1]} | 잔액 : {i[2]}원")
+        else:
+            print("\n내역이 없습니다.")
 
 
 print(f"서비스를 종료합니다. 현재 잔액은 {balance}원 입니다.")
